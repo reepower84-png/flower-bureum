@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff7f8; /* 연분홍 화이트 */
+  --surface: #ffffff;
+  --blush: #ffe4ea; /* 로고 배경 톤 */
+  --blush-2: #ffd0db;
+  --pink: #ff4f81; /* 핫핑크 */
+  --pink-deep: #e23a6c;
+  --coral: #ff8a73;
+  --foreground: #3a2a30;
+  --muted: #8d7480;
+  --line: #f6d9e1;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 136px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dodum), "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-jua {
+  font-family: var(--font-jua), "Jua", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.pink-grad {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 100%);
+}
+
+.chubby {
+  box-shadow: 0 6px 0 0 var(--pink-deep), 0 12px 24px -8px rgba(255, 79, 129, 0.55);
+}
+.chubby:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 0 var(--pink-deep), 0 8px 16px -8px rgba(255, 79, 129, 0.55);
+}
+
+.dots {
+  background-image: radial-gradient(rgba(255, 79, 129, 0.14) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-12deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+}
+.anim-sheet {
+  animation: sheet-up 0.26s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+.anim-fade {
+  animation: fade-in 0.2s ease-out;
+}
+.anim-pop {
+  animation: pop 0.25s ease-out;
+}
+.anim-wiggle {
+  animation: wiggle 1.8s ease-in-out infinite;
+  transform-origin: 50% 60%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-sheet,
+  .anim-fade,
+  .anim-pop,
+  .anim-wiggle {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-blush: var(--blush);
+  --color-pink: var(--pink);
+  --color-coral: var(--coral);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+}
